@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		940761D12452290700D6D5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940761D02452290700D6D5E5 /* AppDelegate.swift */; };
 		940761D52452290900D6D5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940761D42452290900D6D5E5 /* Assets.xcassets */; };
-		940761D82452290900D6D5E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940761D72452290900D6D5E5 /* Preview Assets.xcassets */; };
 		940761DB2452290900D6D5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940761D92452290900D6D5E5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -17,7 +16,6 @@
 		940761CD2452290700D6D5E5 /* Gnirehtet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gnirehtet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		940761D02452290700D6D5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		940761D42452290900D6D5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		940761D72452290900D6D5E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		940761DA2452290900D6D5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		940761DC2452290900D6D5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		940761DD2452290900D6D5E5 /* Gnirehtet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gnirehtet.entitlements; sourceTree = "<group>"; };
@@ -58,17 +56,8 @@
 				940761D92452290900D6D5E5 /* Main.storyboard */,
 				940761DC2452290900D6D5E5 /* Info.plist */,
 				940761DD2452290900D6D5E5 /* Gnirehtet.entitlements */,
-				940761D62452290900D6D5E5 /* Preview Content */,
 			);
 			path = Gnirehtet;
-			sourceTree = "<group>";
-		};
-		940761D62452290900D6D5E5 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				940761D72452290900D6D5E5 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				940761DB2452290900D6D5E5 /* Main.storyboard in Resources */,
-				940761D82452290900D6D5E5 /* Preview Assets.xcassets in Resources */,
 				940761D52452290900D6D5E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +268,7 @@
 				CODE_SIGN_ENTITLEMENTS = Gnirehtet/Gnirehtet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Gnirehtet/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gnirehtet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,7 +289,7 @@
 				CODE_SIGN_ENTITLEMENTS = Gnirehtet/Gnirehtet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Gnirehtet/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gnirehtet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
