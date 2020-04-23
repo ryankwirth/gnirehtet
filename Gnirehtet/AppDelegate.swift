@@ -15,12 +15,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem: NSStatusItem = {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         item.button?.image = NSImage(named: "baseline_wifi_tethering_black_18pt")
-        item.button?.action = #selector(helloWorld(_:))
         return item
     }()
     
+    let menu: NSMenu = {
+        let menu = NSMenu()
+        menu.addItem(withTitle: "Gnirehtet", action: nil, keyEquivalent: "")
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(withTitle: "Hello World", action: #selector(helloWorld(_:)), keyEquivalent: "H")
+        return menu
+    }()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // TODO
+        // Hook up the menu to the statusItem
+        statusItem.menu = menu
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -30,5 +38,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func helloWorld(_ sender: Any?) {
         print("Hello World!")
     }
-    
 }
