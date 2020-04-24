@@ -29,6 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Hook up the menu to the statusItem
         statusItem.menu = menu
+        
+        // Start the relay server
+        Relay.start()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

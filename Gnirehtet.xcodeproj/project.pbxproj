@@ -10,6 +10,9 @@
 		940761D12452290700D6D5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940761D02452290700D6D5E5 /* AppDelegate.swift */; };
 		940761D52452290900D6D5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940761D42452290900D6D5E5 /* Assets.xcassets */; };
 		940761DB2452290900D6D5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940761D92452290900D6D5E5 /* Main.storyboard */; };
+		9447E4E52452A82B005CD130 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9447E4E42452A82B005CD130 /* Relay.swift */; };
+		9447E4F124533333005CD130 /* gnirehtet.apk in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4EC2452AFD5005CD130 /* gnirehtet.apk */; };
+		9447E4FA24533D96005CD130 /* gnirehtet in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4F924533D96005CD130 /* gnirehtet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		940761DA2452290900D6D5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		940761DC2452290900D6D5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		940761DD2452290900D6D5E5 /* Gnirehtet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gnirehtet.entitlements; sourceTree = "<group>"; };
+		9447E4E42452A82B005CD130 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		9447E4EC2452AFD5005CD130 /* gnirehtet.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = gnirehtet.apk; sourceTree = "<group>"; };
+		9447E4F924533D96005CD130 /* gnirehtet */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gnirehtet; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +58,23 @@
 			isa = PBXGroup;
 			children = (
 				940761D02452290700D6D5E5 /* AppDelegate.swift */,
+				9447E4E42452A82B005CD130 /* Relay.swift */,
 				940761D42452290900D6D5E5 /* Assets.xcassets */,
 				940761D92452290900D6D5E5 /* Main.storyboard */,
 				940761DC2452290900D6D5E5 /* Info.plist */,
 				940761DD2452290900D6D5E5 /* Gnirehtet.entitlements */,
+				9447E4E62452AEBE005CD130 /* Resources */,
 			);
 			path = Gnirehtet;
+			sourceTree = "<group>";
+		};
+		9447E4E62452AEBE005CD130 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9447E4F924533D96005CD130 /* gnirehtet */,
+				9447E4EC2452AFD5005CD130 /* gnirehtet.apk */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,8 +135,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9447E4F124533333005CD130 /* gnirehtet.apk in Resources */,
 				940761DB2452290900D6D5E5 /* Main.storyboard in Resources */,
 				940761D52452290900D6D5E5 /* Assets.xcassets in Resources */,
+				9447E4FA24533D96005CD130 /* gnirehtet in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				940761D12452290700D6D5E5 /* AppDelegate.swift in Sources */,
+				9447E4E52452A82B005CD130 /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
