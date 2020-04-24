@@ -8,39 +8,36 @@
 
 import Foundation
 
+// The name of the executable resource.
+let executable = "gnirehtet"
+
 class Relay {
     
-    static var daemon: Process?
+    var daemon: Process?
     
-    static func start() {
-        daemon = RelayProcess.run("relay")
+    func start() {
+        daemon = Relay.run("relay")
     }
     
-    static func stop() {
+    func stop() {
         daemon?.terminate()
     }
     
-    static func install(serial: String?) {
-        RelayProcess.run("install", serial)
+    func install(serial: String?) {
+        Relay.run("install", serial)
     }
     
-    static func start(serial: String?) {
-        RelayProcess.run("start", serial)
+    func start(serial: String?) {
+        Relay.run("start", serial)
     }
     
-    static func stop(serial: String?) {
-        RelayProcess.run("stop", serial)
+    func stop(serial: String?) {
+        Relay.run("stop", serial)
     }
     
-    static func reset(serial: String?) {
-        RelayProcess.run("tunnel", serial)
+    func reset(serial: String?) {
+        Relay.run("tunnel", serial)
     }
-}
-
-class RelayProcess {
-    
-    // The name of the executable resource
-    static let executable = "gnirehtet"
     
     @discardableResult
     static func run(_ args: String?...) -> Process {
@@ -51,5 +48,4 @@ class RelayProcess {
         task.launch()
         return task
     }
-    
 }
