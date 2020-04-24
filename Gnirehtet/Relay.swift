@@ -49,8 +49,6 @@ class RelayProcess {
         task.executableURL = executableURL
         task.arguments = args.compactMap({ $0 })
         task.launch()
-        task.waitUntilExit()
-        print(task.terminationStatus)
         return task
     }
     

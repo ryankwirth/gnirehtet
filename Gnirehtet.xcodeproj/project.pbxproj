@@ -13,6 +13,7 @@
 		9447E4E52452A82B005CD130 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9447E4E42452A82B005CD130 /* Relay.swift */; };
 		9447E4F124533333005CD130 /* gnirehtet.apk in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4EC2452AFD5005CD130 /* gnirehtet.apk */; };
 		9447E4FA24533D96005CD130 /* gnirehtet in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4F924533D96005CD130 /* gnirehtet */; };
+		9462BDCB2453438100819405 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940761DC2452290900D6D5E5 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 				9447E4F124533333005CD130 /* gnirehtet.apk in Resources */,
 				940761DB2452290900D6D5E5 /* Main.storyboard in Resources */,
 				940761D52452290900D6D5E5 /* Assets.xcassets in Resources */,
+				9462BDCB2453438100819405 /* Info.plist in Resources */,
 				9447E4FA24533D96005CD130 /* gnirehtet in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

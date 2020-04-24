@@ -22,7 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.addItem(withTitle: "Gnirehtet", action: nil, keyEquivalent: "")
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(withTitle: "Hello World", action: #selector(helloWorld(_:)), keyEquivalent: "H")
+        menu.addItem(withTitle: "Hello World", action: nil, keyEquivalent: "h")
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(withTitle: "Quit", action: #selector(quit(_:)), keyEquivalent: "q")
         return menu
     }()
     
@@ -35,10 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // TODO
+        // Kill the relay server
+        Relay.stop()
     }
     
-    @objc func helloWorld(_ sender: Any?) {
-        print("Hello World!")
+    @objc func quit(_ sender: Any?) {
+        NSApplication.shared.terminate(self)
     }
 }
