@@ -14,6 +14,7 @@
 		9447E4F124533333005CD130 /* gnirehtet.apk in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4EC2452AFD5005CD130 /* gnirehtet.apk */; };
 		9447E4FA24533D96005CD130 /* gnirehtet in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4F924533D96005CD130 /* gnirehtet */; };
 		94BBA3CD24539A3D002CD5E8 /* MenuBarExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */; };
+		94BBA3CF2453A1DE002CD5E8 /* adb in Resources */ = {isa = PBXBuildFile; fileRef = 94BBA3CE2453A1DE002CD5E8 /* adb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9447E4EC2452AFD5005CD130 /* gnirehtet.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = gnirehtet.apk; sourceTree = "<group>"; };
 		9447E4F924533D96005CD130 /* gnirehtet */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gnirehtet; sourceTree = "<group>"; };
 		94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtra.swift; sourceTree = "<group>"; };
+		94BBA3CE2453A1DE002CD5E8 /* adb */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = adb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		9447E4E62452AEBE005CD130 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94BBA3CE2453A1DE002CD5E8 /* adb */,
 				9447E4F924533D96005CD130 /* gnirehtet */,
 				9447E4EC2452AFD5005CD130 /* gnirehtet.apk */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BBA3CF2453A1DE002CD5E8 /* adb in Resources */,
 				9447E4F124533333005CD130 /* gnirehtet.apk in Resources */,
 				940761DB2452290900D6D5E5 /* Main.storyboard in Resources */,
 				940761D52452290900D6D5E5 /* Assets.xcassets in Resources */,

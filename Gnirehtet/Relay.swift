@@ -8,8 +8,9 @@
 
 import Foundation
 
-// The name of the executable resource.
-let executable = "gnirehtet"
+// Configuration for the executable resources
+let executableName = "gnirehtet"
+let resourcePath = Bundle.main.resourcePath!
 
 class Relay {
     
@@ -43,8 +44,9 @@ class Relay {
     static func run(_ args: String?...) -> Process {
         let task = Process()
         task.arguments = args.compactMap({ $0 })
-        task.executableURL = Bundle.main.url(forResource: executable, withExtension: nil)
-        task.currentDirectoryURL = Bundle.main.resourceURL
+        task.executableURL = Bundle.main.url(forResource: executableName, withExtension: nil)
+        task.currentDirectoryPath = resourcePath
+        task.environment = ["PATH": resourcePath]
         task.launch()
         return task
     }
