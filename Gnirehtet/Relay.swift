@@ -39,15 +39,15 @@ class Relay {
 
 class RelayProcess {
     
-    static var executableURL: URL? {
-        return Bundle.main.url(forResource: "gnirehtet", withExtension: "")
-    }
+    // The name of the executable resource
+    static let executable = "gnirehtet"
     
     @discardableResult
     static func run(_ args: String?...) -> Process {
         let task = Process()
-        task.executableURL = executableURL
         task.arguments = args.compactMap({ $0 })
+        task.executableURL = Bundle.main.url(forResource: executable, withExtension: nil)
+        task.currentDirectoryURL = Bundle.main.resourceURL
         task.launch()
         return task
     }
