@@ -19,16 +19,24 @@ class MenuBarExtra {
         let menu = NSMenu()
         menu.addItem(withTitle: "Gnirehtet", action: nil, keyEquivalent: "")
         menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         return menu
     }()
+    
+    var deviceItems = [NSMenuItem]()
     
     init() {
         // Hook up the statusItem's menu
         statusItem.menu = menu
     }
     
-    func refresh() {
-        print("Refreshing!")
+    func refresh(with devices: [Device]) {
+        // Remove all of the device items
+        for item in deviceItems {
+            menu.removeItem(item)
+        }
+        
+        deviceItems = devices.enumerated().map { menu.insertItem(withTitle: $1.serial, action: nil, keyEquivalent: "", at: 2 + $0) }
     }
 }

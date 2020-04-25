@@ -60,6 +60,8 @@ class ADB {
 
 extension ADB: USBWatcherDelegate {
     func notify() {
-        detectDevices()
+        DispatchQueue.main.async {
+            self.detectDevices()
+        }
     }
 }

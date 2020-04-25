@@ -27,15 +27,20 @@ class Gnirehtet {
         
         relay.kill()
     }
+    
+    func refresh() {
+        print("Refreshing!")
+        menuBarExtra.refresh(with: adb.devices)
+    }
 }
 
 extension Gnirehtet: ADBDelegate {
     func onDeviceAdded(_ device: Device) {
         relay.start(serial: device.serial)
-        menuBarExtra.refresh()
+        refresh()
     }
     
     func onDeviceRemoved(_ device: Device) {
-        menuBarExtra.refresh()
+        refresh()
     }
 }
