@@ -16,14 +16,11 @@ protocol ADBDelegate: class {
 class ADB {
     private weak var delegate: ADBDelegate?
     private var usbWatcher: USBWatcher?
+    private var devices = [Device]()
     
     init(delegate: ADBDelegate) {
         self.delegate = delegate
         usbWatcher = USBWatcher(delegate: self)
-    }
-    
-    private func parseDevice(_ output: String) {
-        print("Device: \(output)")
     }
 }
 
@@ -31,10 +28,10 @@ extension ADB: USBWatcherDelegate {
     func notify() {
         // Run `adb devices -l`
         if let output = Process.output(.adb, "devices", "-l") {
-            // Parse each line individually
-            output.enumerateLines { line, _ in
-                self.parseDevice(line)
-            }
+            // Split by newline and attempt to create Device structs
+            devices = output.split { $0.isNewline }
+                .map(String.init)
+                .compactMap(Device.init)
         }
     }
 }
