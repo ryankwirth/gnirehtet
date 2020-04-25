@@ -11,34 +11,31 @@ import IOKit.usb
 import IOKit.usb.IOUSBLib
 
 class Gnirehtet {
-    private var adb: ADB?
-    private var relay: Relay?
-    private var menuBarExtra: MenuBarExtra?
+    private var adb: ADB!
+    private var relay = Relay()
+    private var menuBarExtra = MenuBarExtra()
     
     init() {
-        // Initialize each module
         adb = ADB(delegate: self)
-        relay = Relay()
-        menuBarExtra = MenuBarExtra()
-        
-        // Start the relay
-        // relay?.start()
+        relay.launch()
     }
     
     deinit {
-        relay?.stop()
-        adb = nil
-        relay = nil
-        menuBarExtra = nil
+        for device in adb.devices {
+            relay.stop(serial: device.serial)
+        }
+        
+        relay.kill()
     }
 }
 
 extension Gnirehtet: ADBDelegate {
-    func deviceAdded(serial: String) {
-        print("device added: \(serial)")
+    func onDeviceAdded(_ device: Device) {
+        relay.start(serial: device.serial)
+        menuBarExtra.refresh()
     }
     
-    func deviceRemoved(serial: String) {
-        print("device removed: \(serial)")
+    func onDeviceRemoved(_ device: Device) {
+        menuBarExtra.refresh()
     }
 }

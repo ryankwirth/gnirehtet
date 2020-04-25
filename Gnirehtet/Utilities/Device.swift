@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ryan Wirth. All rights reserved.
 //
 
-struct Device {
+struct Device: Hashable {
     var serial: String
     var product: String
     
