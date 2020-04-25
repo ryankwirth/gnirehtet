@@ -12,7 +12,11 @@ class MenuBarExtra {
     static let ICON_DEVICE_CONNECTED = "baseline_mobile_friendly_black_18pt"
     static let ICON_DEVICE_DISCONNECTED = "baseline_mobile_off_black_18pt"
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    let statusItem: NSStatusItem = {
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        item.button?.image = NSImage(named: MenuBarExtra.ICON_DEVICE_DISCONNECTED)
+        return item
+    }()
     
     let menu: NSMenu = {
         let menu = NSMenu()
