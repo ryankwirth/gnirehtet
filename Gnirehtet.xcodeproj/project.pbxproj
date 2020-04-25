@@ -15,6 +15,8 @@
 		9447E4FA24533D96005CD130 /* gnirehtet in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4F924533D96005CD130 /* gnirehtet */; };
 		94BBA3CD24539A3D002CD5E8 /* MenuBarExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */; };
 		94BBA3CF2453A1DE002CD5E8 /* adb in Resources */ = {isa = PBXBuildFile; fileRef = 94BBA3CE2453A1DE002CD5E8 /* adb */; };
+		94E4094B2453B335004FF81D /* ADB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4094A2453B335004FF81D /* ADB.swift */; };
+		94E4094D2453BF44004FF81D /* Gnirehtet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4094C2453BF44004FF81D /* Gnirehtet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		9447E4F924533D96005CD130 /* gnirehtet */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gnirehtet; sourceTree = "<group>"; };
 		94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtra.swift; sourceTree = "<group>"; };
 		94BBA3CE2453A1DE002CD5E8 /* adb */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = adb; sourceTree = "<group>"; };
+		94E4094A2453B335004FF81D /* ADB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADB.swift; sourceTree = "<group>"; };
+		94E4094C2453BF44004FF81D /* Gnirehtet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gnirehtet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +66,12 @@
 			isa = PBXGroup;
 			children = (
 				940761D02452290700D6D5E5 /* AppDelegate.swift */,
-				9447E4E42452A82B005CD130 /* Relay.swift */,
-				94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */,
+				94E4094C2453BF44004FF81D /* Gnirehtet.swift */,
 				940761D42452290900D6D5E5 /* Assets.xcassets */,
 				940761D92452290900D6D5E5 /* Main.storyboard */,
 				940761DC2452290900D6D5E5 /* Info.plist */,
 				940761DD2452290900D6D5E5 /* Gnirehtet.entitlements */,
+				94E4094E2453BFE5004FF81D /* Modules */,
 				9447E4E62452AEBE005CD130 /* Resources */,
 			);
 			path = Gnirehtet;
@@ -81,6 +85,16 @@
 				9447E4EC2452AFD5005CD130 /* gnirehtet.apk */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		94E4094E2453BFE5004FF81D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				94E4094A2453B335004FF81D /* ADB.swift */,
+				9447E4E42452A82B005CD130 /* Relay.swift */,
+				94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BBA3CD24539A3D002CD5E8 /* MenuBarExtra.swift in Sources */,
+				94E4094D2453BF44004FF81D /* Gnirehtet.swift in Sources */,
 				940761D12452290700D6D5E5 /* AppDelegate.swift in Sources */,
 				9447E4E52452A82B005CD130 /* Relay.swift in Sources */,
+				94E4094B2453B335004FF81D /* ADB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Gnirehtet/Gnirehtet.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Gnirehtet/GnirehtetRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
