@@ -6,9 +6,13 @@
 //  Copyright © 2020 Ryan Wirth. All rights reserved.
 //
 
-struct Device: Hashable {
+struct Device: CustomStringConvertible, Hashable {
     var serial: String
     var product: String
+    
+    var description: String {
+        return "\(product) (\(serial))"
+    }
     
     init?(_ output: String) {
         // Break the device line up by whitespace
