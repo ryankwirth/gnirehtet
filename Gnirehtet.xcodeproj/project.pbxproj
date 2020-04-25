@@ -13,6 +13,7 @@
 		9447E4E52452A82B005CD130 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9447E4E42452A82B005CD130 /* Relay.swift */; };
 		9447E4F124533333005CD130 /* gnirehtet.apk in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4EC2452AFD5005CD130 /* gnirehtet.apk */; };
 		9447E4FA24533D96005CD130 /* gnirehtet in Resources */ = {isa = PBXBuildFile; fileRef = 9447E4F924533D96005CD130 /* gnirehtet */; };
+		94669F322453C6ED00315E16 /* USBWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94669F312453C6ED00315E16 /* USBWatcher.swift */; };
 		94BBA3CD24539A3D002CD5E8 /* MenuBarExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */; };
 		94BBA3CF2453A1DE002CD5E8 /* adb in Resources */ = {isa = PBXBuildFile; fileRef = 94BBA3CE2453A1DE002CD5E8 /* adb */; };
 		94E4094B2453B335004FF81D /* ADB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4094A2453B335004FF81D /* ADB.swift */; };
@@ -29,6 +30,7 @@
 		9447E4E42452A82B005CD130 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
 		9447E4EC2452AFD5005CD130 /* gnirehtet.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = gnirehtet.apk; sourceTree = "<group>"; };
 		9447E4F924533D96005CD130 /* gnirehtet */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gnirehtet; sourceTree = "<group>"; };
+		94669F312453C6ED00315E16 /* USBWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBWatcher.swift; sourceTree = "<group>"; };
 		94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtra.swift; sourceTree = "<group>"; };
 		94BBA3CE2453A1DE002CD5E8 /* adb */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = adb; sourceTree = "<group>"; };
 		94E4094A2453B335004FF81D /* ADB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADB.swift; sourceTree = "<group>"; };
@@ -91,8 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				94E4094A2453B335004FF81D /* ADB.swift */,
-				9447E4E42452A82B005CD130 /* Relay.swift */,
 				94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */,
+				9447E4E42452A82B005CD130 /* Relay.swift */,
+				94669F312453C6ED00315E16 /* USBWatcher.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				94BBA3CD24539A3D002CD5E8 /* MenuBarExtra.swift in Sources */,
 				94E4094D2453BF44004FF81D /* Gnirehtet.swift in Sources */,
 				940761D12452290700D6D5E5 /* AppDelegate.swift in Sources */,
+				94669F322453C6ED00315E16 /* USBWatcher.swift in Sources */,
 				9447E4E52452A82B005CD130 /* Relay.swift in Sources */,
 				94E4094B2453B335004FF81D /* ADB.swift in Sources */,
 			);

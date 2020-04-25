@@ -6,6 +6,10 @@
 //  Copyright © 2020 Ryan Wirth. All rights reserved.
 //
 
+import IOKit
+import IOKit.usb
+import IOKit.usb.IOUSBLib
+
 class Gnirehtet {
     
     var adb: ADB?
@@ -32,11 +36,13 @@ class Gnirehtet {
 }
 
 extension Gnirehtet: ADBDelegate {
-    func deviceAdded(serial: String) {
-        // TODO
+    func deviceAdded() {
+        print("device added")
     }
     
-    func deviceRemoved(serial: String) {
-        // TODO
+    func deviceRemoved() {
+        print("device removed")
     }
+    
+
 }
