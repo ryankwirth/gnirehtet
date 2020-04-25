@@ -37,6 +37,6 @@ class MenuBarExtra {
             menu.removeItem(item)
         }
         
-        deviceItems = devices.enumerated().map { menu.insertItem(withTitle: $1.serial, action: nil, keyEquivalent: "", at: 2 + $0) }
+        deviceItems = devices.enumerated().map { menu.insertItem(withTitle: $1.description, action: nil, keyEquivalent: "", at: 2 + $0) }
     }
 }
