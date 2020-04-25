@@ -11,20 +11,13 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    let relay = Relay()
-    let menuBarExtra = MenuBarExtra()
-    
+    private var gnirehtet: Gnirehtet?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Start the relay server
-        relay.start()
-        
-        relay.start(serial: nil)
+        gnirehtet = Gnirehtet()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Kill the relay server
-        relay.stop()
+        gnirehtet = nil
     }
-    
 }

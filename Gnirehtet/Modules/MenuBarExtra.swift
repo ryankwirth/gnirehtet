@@ -9,7 +9,6 @@
 import Cocoa
 
 class MenuBarExtra {
-    
     let statusItem: NSStatusItem = {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         item.button?.image = NSImage(named: "baseline_usb_black_18pt")
@@ -28,5 +27,4 @@ class MenuBarExtra {
         // Hook up the statusItem's menu
         statusItem.menu = menu
     }
-    
 }
