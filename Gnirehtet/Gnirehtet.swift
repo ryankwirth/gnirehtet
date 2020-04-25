@@ -34,11 +34,11 @@ class Gnirehtet {
 }
 
 extension Gnirehtet: ADBDelegate {
-    func deviceAdded(serial: String) {
-        print("device added: \(serial)")
+    func addedDevice(_ device: Device) {
+        print("Added: \(device)")
     }
     
-    func deviceRemoved(serial: String) {
-        print("device removed: \(serial)")
+    func removedDevice(_ device: Device) {
+        print("Removed: \(device)")
     }
 }

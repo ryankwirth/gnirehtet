@@ -8,9 +8,12 @@
 
 import Foundation
 
+private let MAX_ATTEMPTS = 5
+private let ATTEMPT_DELAY = 1.0
+
 protocol ADBDelegate: class {
-    func deviceAdded(serial: String)
-    func deviceRemoved(serial: String)
+    func addedDevice(_ device: Device)
+    func removedDevice(_ device: Device)
 }
 
 class ADB {
@@ -22,16 +25,41 @@ class ADB {
         self.delegate = delegate
         usbWatcher = USBWatcher(delegate: self)
     }
+    
+    private func detectDevices(attempt: Int = 1) {
+        // Run `adb devices -l`
+        guard let output = Process.output(.adb, "devices", "-l") else { return }
+        
+        // Parse the output into Device structs
+        let devices = output.split { $0.isNewline }
+            .map(String.init)
+            .compactMap(Device.init)
+        
+        // Compute the changes in the sets of devices
+        let differences = devices.difference(from: self.devices)
+        self.devices = devices
+        
+        if differences.isEmpty, attempt < MAX_ATTEMPTS {
+            // Try again after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + ATTEMPT_DELAY) {
+                self.detectDevices(attempt: attempt + 1)
+            }
+        } else {
+            // Inform the delegate of all changes
+            for difference in differences {
+                switch difference {
+                case .insert(offset: _, element: let device, associatedWith: _):
+                    delegate?.addedDevice(device)
+                case .remove(offset: _, element: let device, associatedWith: _):
+                    delegate?.removedDevice(device)
+                }
+            }
+        }
+    }
 }
 
 extension ADB: USBWatcherDelegate {
     func notify() {
-        // Run `adb devices -l`
-        if let output = Process.output(.adb, "devices", "-l") {
-            // Split by newline and attempt to create Device structs
-            devices = output.split { $0.isNewline }
-                .map(String.init)
-                .compactMap(Device.init)
-        }
+        detectDevices()
     }
 }
