@@ -29,7 +29,6 @@ class Gnirehtet {
     }
     
     func refresh() {
-        print("Refreshing!")
         menuBarExtra.refresh(with: adb.devices)
     }
 }
