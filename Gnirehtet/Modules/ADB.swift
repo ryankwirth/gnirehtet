@@ -12,14 +12,14 @@ private let MAX_ATTEMPTS = 5
 private let ATTEMPT_DELAY = 1.0
 
 protocol ADBDelegate: class {
-    func addedDevice(_ device: Device)
-    func removedDevice(_ device: Device)
+    func onDeviceAdded(_ device: Device)
+    func onDeviceRemoved(_ device: Device)
 }
 
 class ADB {
     private weak var delegate: ADBDelegate?
     private var usbWatcher: USBWatcher?
-    private var devices = [Device]()
+    private(set) var devices = [Device]()
     
     init(delegate: ADBDelegate) {
         self.delegate = delegate
@@ -31,28 +31,28 @@ class ADB {
         guard let output = Process.output(.adb, "devices", "-l") else { return }
         
         // Parse the output into Device structs
-        let devices = output.split { $0.isNewline }
+        let currentDevices = output.split { $0.isNewline }
             .map(String.init)
             .compactMap(Device.init)
         
         // Compute the changes in the sets of devices
-        let differences = devices.difference(from: self.devices)
-        self.devices = devices
+        let differences = currentDevices.difference(from: devices)
+        devices = currentDevices
         
-        if differences.isEmpty, attempt < MAX_ATTEMPTS {
-            // Try again after a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + ATTEMPT_DELAY) {
-                self.detectDevices(attempt: attempt + 1)
-            }
-        } else {
+        if !differences.isEmpty {
             // Inform the delegate of all changes
             for difference in differences {
                 switch difference {
                 case .insert(offset: _, element: let device, associatedWith: _):
-                    delegate?.addedDevice(device)
+                    delegate?.onDeviceAdded(device)
                 case .remove(offset: _, element: let device, associatedWith: _):
-                    delegate?.removedDevice(device)
+                    delegate?.onDeviceRemoved(device)
                 }
+            }
+        } else if attempt < MAX_ATTEMPTS {
+            // Try again after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + ATTEMPT_DELAY) {
+                self.detectDevices(attempt: attempt + 1)
             }
         }
     }

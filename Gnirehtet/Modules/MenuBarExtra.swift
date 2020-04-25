@@ -27,4 +27,8 @@ class MenuBarExtra {
         // Hook up the statusItem's menu
         statusItem.menu = menu
     }
+    
+    func refresh() {
+        print("Refreshing!")
+    }
 }

@@ -10,11 +10,11 @@ import Foundation
 
 extension Process {
     @discardableResult
-    static func run(_ executable: Executable, pipe: Pipe?, args: [String?]) -> Process {
+    static func run(_ executable: Executable, pipe: Pipe?, args: [String]) -> Process {
         let task = Process()
         task.executableURL = executable.url
         task.standardOutput = pipe
-        task.arguments = args.compactMap({ $0 })
+        task.arguments = args
         
         // Configure environment variables
         task.currentDirectoryPath = Resources.basePath
@@ -25,11 +25,11 @@ extension Process {
     }
     
     @discardableResult
-    static func run(_ executable: Executable, _ args: String?...) -> Process {
+    static func run(_ executable: Executable, _ args: String...) -> Process {
         return run(executable, pipe: nil, args: args)
     }
     
-    static func output(_ executable: Executable, _ args: String?...) -> String? {
+    static func output(_ executable: Executable, _ args: String...) -> String? {
         let pipe = Pipe()
         
         // Run the executable and wait for it to finish

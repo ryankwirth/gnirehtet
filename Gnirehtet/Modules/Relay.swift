@@ -11,27 +11,19 @@ import Foundation
 class Relay {
     private var daemon: Process?
     
-    func start() {
+    func launch() {
         daemon = Process.run(.gnirehtet, "relay")
     }
     
-    func stop() {
+    func kill() {
         daemon?.terminate()
     }
     
-    func install(serial: String?) {
-        Process.run(.gnirehtet, "install", serial)
-    }
-    
-    func start(serial: String?) {
+    func start(serial: String) {
         Process.run(.gnirehtet, "start", serial)
     }
     
-    func stop(serial: String?) {
+    func stop(serial: String) {
         Process.run(.gnirehtet, "stop", serial)
-    }
-    
-    func reset(serial: String?) {
-        Process.run(.gnirehtet, "tunnel", serial)
     }
 }
