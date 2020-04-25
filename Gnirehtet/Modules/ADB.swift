@@ -11,8 +11,8 @@ import IOKit.usb
 import IOKit.usb.IOUSBLib
 
 protocol ADBDelegate: class {
-    func deviceAdded()
-    func deviceRemoved()
+    func deviceAdded(serial: String)
+    func deviceRemoved(serial: String)
 }
 
 class ADB {

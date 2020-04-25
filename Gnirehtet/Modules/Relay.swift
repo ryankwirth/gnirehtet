@@ -13,8 +13,7 @@ let executableName = "gnirehtet"
 let resourcePath = Bundle.main.resourcePath!
 
 class Relay {
-    
-    var daemon: Process?
+    private var daemon: Process?
     
     func start() {
         daemon = Relay.run("relay")

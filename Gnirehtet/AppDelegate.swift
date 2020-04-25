@@ -11,8 +11,7 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    var gnirehtet: Gnirehtet?
+    private var gnirehtet: Gnirehtet?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         gnirehtet = Gnirehtet()
@@ -21,5 +20,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         gnirehtet = nil
     }
-    
 }
