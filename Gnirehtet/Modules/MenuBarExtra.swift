@@ -20,7 +20,8 @@ class MenuBarExtra {
     
     let menu: NSMenu = {
         let menu = NSMenu()
-        menu.addItem(withTitle: "Gnirehtet", action: nil, keyEquivalent: "")
+        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        menu.addItem(withTitle: "Gnirehtet v\(version)", action: nil, keyEquivalent: "")
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem.separator())
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
