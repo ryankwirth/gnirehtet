@@ -102,7 +102,6 @@
 			children = (
 				941A7FC82453D60A0036A390 /* Device.swift */,
 				94669F342453CC9500315E16 /* Process+Executable.swift */,
-				94669F312453C6ED00315E16 /* USBWatcher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -112,6 +111,7 @@
 			children = (
 				94E4094A2453B335004FF81D /* ADB.swift */,
 				9447E4E42452A82B005CD130 /* Relay.swift */,
+				94669F312453C6ED00315E16 /* USBWatcher.swift */,
 				94BBA3CC24539A3D002CD5E8 /* MenuBarExtra.swift */,
 			);
 			path = Modules;

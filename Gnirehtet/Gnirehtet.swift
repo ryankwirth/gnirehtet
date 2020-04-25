@@ -13,11 +13,17 @@ import IOKit.usb.IOUSBLib
 class Gnirehtet {
     private var adb: ADB!
     private var relay = Relay()
+    private var usbWatcher: USBWatcher!
     private var menuBarExtra = MenuBarExtra()
     
     init() {
         adb = ADB(delegate: self)
+        usbWatcher = USBWatcher(delegate: self)
+        
+        // Start the relay and search for devices
+        refresh()
         relay.launch()
+        adb.detectDevices()
     }
     
     deinit {
@@ -41,5 +47,11 @@ extension Gnirehtet: ADBDelegate {
     
     func onDeviceRemoved(_ device: Device) {
         refresh()
+    }
+}
+
+extension Gnirehtet: USBWatcherDelegate {
+    func onUSBDevicesChanged() {
+        adb.detectDevices()
     }
 }

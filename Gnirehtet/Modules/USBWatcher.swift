@@ -11,7 +11,7 @@ import IOKit.usb
 import IOKit.usb.IOUSBLib
 
 protocol USBWatcherDelegate: class {
-    func notify()
+    func onUSBDevicesChanged()
 }
 
 /// An object which observes USB devices added and removed from the system.
@@ -27,12 +27,8 @@ class USBWatcher {
         
         func handleNotification(instance: UnsafeMutableRawPointer?, _ iterator: io_iterator_t) {
             let watcher = Unmanaged<USBWatcher>.fromOpaque(instance!).takeUnretainedValue()
-            watcher.delegate?.notify()
-            
-            // Spin through all of the devices on the IO queue
-            while case let device = IOIteratorNext(iterator), device != IO_OBJECT_NULL {
-                IOObjectRelease(device)
-            }
+            watcher.exhaustIterator(iterator)
+            watcher.delegate?.onUSBDevicesChanged()
         }
         
         let query = IOServiceMatching(kIOUSBDeviceClassName)
@@ -43,14 +39,14 @@ class USBWatcher {
             notificationPort, kIOMatchedNotification, query,
             handleNotification, opaqueSelf, &addedIterator)
         
-        handleNotification(instance: opaqueSelf, addedIterator)
+        exhaustIterator(addedIterator)
         
         // Watch for disconnected devices
         IOServiceAddMatchingNotification(
             notificationPort, kIOTerminatedNotification, query,
             handleNotification, opaqueSelf, &removedIterator)
         
-        handleNotification(instance: opaqueSelf, removedIterator)
+        exhaustIterator(removedIterator)
         
         // Add the notification to the main run loop to receive future updates
         CFRunLoopAddSource(
@@ -63,5 +59,12 @@ class USBWatcher {
         IOObjectRelease(addedIterator)
         IOObjectRelease(removedIterator)
         IONotificationPortDestroy(notificationPort)
+    }
+    
+    private func exhaustIterator(_ iterator: io_iterator_t) {
+        // Spin through all of the devices on the IO queue
+        while case let device = IOIteratorNext(iterator), device != IO_OBJECT_NULL {
+            IOObjectRelease(device)
+        }
     }
 }

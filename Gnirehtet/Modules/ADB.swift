@@ -18,15 +18,13 @@ protocol ADBDelegate: class {
 
 class ADB {
     private weak var delegate: ADBDelegate?
-    private var usbWatcher: USBWatcher?
     private(set) var devices = [Device]()
     
     init(delegate: ADBDelegate) {
         self.delegate = delegate
-        usbWatcher = USBWatcher(delegate: self)
     }
     
-    private func detectDevices(attempt: Int = 1) {
+    func detectDevices(attempt: Int = 1) {
         // Run `adb devices -l`
         guard let output = Process.output(.adb, "devices", "-l") else { return }
         
@@ -54,14 +52,6 @@ class ADB {
             DispatchQueue.main.asyncAfter(deadline: .now() + ATTEMPT_DELAY) {
                 self.detectDevices(attempt: attempt + 1)
             }
-        }
-    }
-}
-
-extension ADB: USBWatcherDelegate {
-    func notify() {
-        DispatchQueue.main.async {
-            self.detectDevices()
         }
     }
 }
